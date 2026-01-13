@@ -12,7 +12,7 @@ this repo provide URDF server get /robot_description to Vizzy webapp
 # Install repo on ROS2 Compite
 git clone https://github.com/thongpanchang/urdf_server.git
 cd ws/
-colcon build
+colcon build --packages-select urdf_web_server
 
 # Install ROS rosbridge_server
 sudo apt install ros-<ROS_DISTRO>-rosbridge-server
@@ -23,7 +23,7 @@ sudo apt install ros-<ROS_DISTRO>-rosbridge-server
 ros2 launch rosbridge_server rosbridge_websocket_launch.xml websocket_address:=0.0.0.0
 
 # Run robot description server
-ros2 launch ur_description web_server.launch.py
+ros2 launch urdf_web_server urdf_server.launch.py
 ```
 
 ### If your robot_description using xacro file. Plese convert xacro to urdf
